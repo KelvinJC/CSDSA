@@ -1,0 +1,20 @@
+
+A visual representation of linked list in memory
+- Each data block (node) also stores the memory address (ptr) to the subsequent data block 
+- Memory used to store blocks are not contiguous (as depicted by the intermediate ellipsis ... )
+
+
+       data   ptr            data    ptr           data    ptr          data    ptr          data    ptr            data    ptr       
+     _______________  ...  _______________  ...  _______________  ...  ______________   ... _______________   ...  _______________ 
+    |       |       |     |       |       |     |       |       |     |       |       |    |       |       |      |       |       |                                                    
+    |    1     234  |     |   7      256  |     |   9      342  |     |    4     344  |    |   23     392  |      |   3       0   |          
+    |_______|_______| ... |_______|_______| ... |_______|_______| ... |_______|_______| ...|_______|_______|  ... |_______|_______|
+           201                   234                   256                   342                  344                    392
+
+
+implementation in C:
+Struct Node {
+    int data;   // actual data of node
+    Node* next; // pointer storing memory address of next node
+}
+
