@@ -44,6 +44,27 @@ void insert(int val, int position) { /* insert val at position */
 }
 
 
+void deleteL(int position) { /* delete node at position */
+    struct Node* temp1 = head;
+    struct Node* temp2;
+
+
+    if (position == 1) {
+        head = temp1->next;
+        free(temp1);
+        return;
+    }
+
+    for(int i = 0; i < position - 2; ++i) {
+        temp1 = temp1->next;
+    }
+    // temp1 points to node before delete position;
+    temp2 = temp1->next;        // node at delete position
+    temp1->next = temp2->next;  // node after delete position
+    free(temp2);                // delete temp2
+}
+
+
 void print_list() {
     struct Node* temp = head;
     printf("List is: ");
@@ -71,4 +92,7 @@ void main() {
         insert(x, i + 1);
         print_list();
     }
+    deleteL(3);
+    putchar('\n');
+    print_list();
 }
