@@ -1,5 +1,5 @@
 /*
- C implementation of deletion of a node with a given value in a linked list
+ C implementation of deletion of a node given its position in a linked list
 */
 
 #include <stdio.h>
@@ -13,32 +13,9 @@ struct Node {
 struct Node* head; // global variable; can be accessed anywhere
 
 
-void delete_val(int val) { /* delete node with value val */
-    struct Node* temp1 = (struct Node*)malloc(sizeof(struct Node*));
-    temp1 = head;
-    int i = 1;
-    void delete_pos();
-
-    if (temp1->data == val) {
-        head = temp1->next;
-        free(temp1);
-        return;
-    }
-
-    while(temp1 != NULL) {
-        if (temp1->data == val){
-            delete_pos(i);
-            return;
-        }
-        ++i;
-        temp1 = temp1->next;
-    }
-}
-
-void delete_pos(int position) { /* helper function to delete node at position */
+void delete_pos(int position) { /* delete node at position */
     struct Node* temp1 = head;
     struct Node* temp2;
-
 
     if (position == 1) {
         head = temp1->next;
@@ -49,10 +26,10 @@ void delete_pos(int position) { /* helper function to delete node at position */
     for(int i = 0; i < position - 2; ++i) {
         temp1 = temp1->next;
     }
-
-    temp2 = temp1->next;        
-    temp1->next = temp2->next;  
-    free(temp2);                
+    // temp1 points to node before delete position;
+    temp2 = temp1->next;        // node at delete position
+    temp1->next = temp2->next;  // node after delete position
+    free(temp2);                // delete temp2
 }
 
 void insert(int val, int position) { /* helper function to insert values into list for test */
@@ -76,6 +53,7 @@ void insert(int val, int position) { /* helper function to insert values into li
 
 void print_list() {
     struct Node* temp = head;
+    printf("List is: ");
     while (temp != NULL) {
         if (temp->next == NULL)
             printf("[ %d ]", temp->data);
@@ -96,7 +74,7 @@ void main() {
 
     printf("List before deletion: \n");
     print_list();
-    delete_val(test_array[5]); 
+    delete_pos(5); 
     printf("\n\nList before deletion: \n");
     print_list();
 }
