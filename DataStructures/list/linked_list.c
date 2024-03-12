@@ -44,7 +44,7 @@ void insert(int val, int position) { /* insert val at position */
 }
 
 
-void deleteL(int position) { /* delete node at position */
+void delete_pos(int position) { /* delete node at position */
     struct Node* temp1 = head;
     struct Node* temp2;
 
@@ -62,6 +62,28 @@ void deleteL(int position) { /* delete node at position */
     temp2 = temp1->next;        // node at delete position
     temp1->next = temp2->next;  // node after delete position
     free(temp2);                // delete temp2
+}
+
+
+void delete_val(int val) { /* delete node with value val */
+    struct Node* temp1 = (struct Node*)malloc(sizeof(struct Node*));
+    temp1 = head;
+    int i = 1;
+    
+    if (temp1->data == val) {
+        head = temp1->next;
+        free(temp1);
+        return;
+    }
+
+    while(temp1 != NULL) {
+        if (temp1->data == val){
+            delete_pos(i);
+            return;
+        }
+        ++i;
+        temp1 = temp1->next;
+    }
 }
 
 
@@ -92,7 +114,10 @@ void main() {
         insert(x, i + 1);
         print_list();
     }
-    deleteL(3);
+    delete_pos(3);
+    putchar('\n');
+    print_list();
+    delete_val(33);
     putchar('\n');
     print_list();
 }
