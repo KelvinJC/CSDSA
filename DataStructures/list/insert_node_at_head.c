@@ -1,5 +1,5 @@
 /*
-Implementation of linked list in C/C++
+Insert a node at the head of a linked list 
 */
 
 #include <stdio.h>
@@ -13,13 +13,12 @@ struct Node {
 struct Node* head; // global variable; can be accessed anywhere
 
 
-void insert_at_head(int x) { /* insert x at head */
+void insert_at_head(int val) { /* insert val at head */
     struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-    (*temp).data = x;
+    (*temp).data = val;
     (*temp).next = head;
     head = temp;
 }
-
 
 void print_list() {
     struct Node* temp = head;
@@ -33,18 +32,17 @@ void print_list() {
     }
 }
 
-
 void main() {
     head = NULL; // empty list
-    int n, i, x;
+    int i, count, num;
 
     printf("How many numbers are to be stored? \n");
-    scanf("%d", &n);
+    scanf("%d", &count);
     
-    for(i = 0; i < n; i++) {
+    for(i = 0; i < count; i++) {
         printf("Enter the number \n");
-        scanf("%d", &x);
-        insert_at_head(x);
+        scanf("%d", &num);
+        insert_at_head(num);
         print_list();
     }
 }
