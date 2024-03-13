@@ -13,14 +13,6 @@ struct Node {
 struct Node* head; // global variable; can be accessed anywhere
 
 
-void insert_at_head(int x) { /* insert x at head */
-    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-    (*temp).data = x;
-    (*temp).next = head;
-    head = temp;
-}
-
-
 void insert(int val, int position) { /* insert val at position */
     // create the new node to be added
     struct Node* temp1 = (struct Node*)malloc(sizeof(struct Node*));
@@ -66,7 +58,6 @@ void main() {
     for(i = 0; i < n; i++) {
         printf("Enter the number \n");
         scanf("%d", &x);
-        // insert_at_head(x);
         insert(x, i + 1);
         print_list();
     }
