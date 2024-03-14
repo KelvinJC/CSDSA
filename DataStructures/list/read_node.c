@@ -22,15 +22,16 @@ int read(int n) { /* read a node at position n */
     return(temp->data);
 }
 
-int read_position(int val) { /* returns the first position of val; -1 if not found */
+int get_position(int val) { /* returns the first position of val; -1 if not found */
     int i = 0;
     struct Node* temp = head;
 
     while(temp) {
-        if (temp->data = val) {
+        if (temp->data == val) {
             return(i);
         }
         ++i;
+        temp = temp->next;
     }
     return(-1);
 }
@@ -71,5 +72,7 @@ void main() {
     }
 
     print_list();
-    printf("\nread %d", read(3));
+    printf("\nread %d \n", read(3));
+    printf("Position of 3 in the list is: %d \n", get_position(3));
+    printf("Position of 34 in the list is: %d \n", get_position(34));
 }
