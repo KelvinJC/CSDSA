@@ -58,9 +58,9 @@ void main() {
     struct Node* head = NULL;
 
     int test_array[] = {1, 2, 3, 4, 34, 22, 91};
-    int num_elements = sizeof(test_array) / sizeof(test_array[0]);
+    int len = sizeof(test_array) / sizeof(test_array[0]);
 
-    for (i = 0; i < num_elements; ++i) {
+    for (i = 0; i < len; ++i) {
         printf("next integer to %d is %d\n", test_array[i], test_array[i + 1]);
         head = insert(head, test_array[i]);
     }
