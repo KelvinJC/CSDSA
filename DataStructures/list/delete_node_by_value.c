@@ -1,5 +1,5 @@
 /*
- C implementation of deletion of a node with a given value in a linked list
+ Delete a node with a given value in a linked list
 */
 
 #include <stdio.h>

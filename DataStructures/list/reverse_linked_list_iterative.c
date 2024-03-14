@@ -1,5 +1,5 @@
 /*
-Implementation of linked list reversal with the iterative method in C/C++
+Implementation of linked list reversal with the iterative method
 */
 
 #include <stdio.h>

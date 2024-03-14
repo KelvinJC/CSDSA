@@ -1,5 +1,5 @@
 /*
-Implementation of linked list in C/C++
+Implementation of linked list in C
 */
 
 #include <stdio.h>
