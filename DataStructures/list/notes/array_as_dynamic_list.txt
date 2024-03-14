@@ -1,0 +1,28 @@
+
+Using array as an implementation of a dynamic list
+
+With an array A
+the content of each block in the array is accessed by indexing A
+
+     A[0]  A[1]  A[2]  A[3]  A[4]  A[5] ....
+     _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____   
+    |     |     |     |     |     |     |     |     |     |     |     |
+    |  1  |  4  |  5  |  6  |  7  |  9  |     |     |     |     |     |
+    |_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|
+
+
+int A[MAXSIZE]
+
+cost of operations
+1. Access - Read/Write element at an index                          Constant time O(1)
+2. Insert - Writing data to a particular position within the array  Linear time O(n)
+3. Remove - Taking data out from a position within array            Linear time O(n)
+4. Add    - When list is full adding an extra element               Linear time O(n)
+
+Note:
+Adding when the list is full occurs in linear time 
+because to accomodate the new element
+all previous contents of the array are copied to a new array of double the size
+after which the new element can be added
+
+An array as a dynamic list is not memory efficient 

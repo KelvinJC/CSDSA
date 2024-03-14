@@ -1,0 +1,10 @@
+Features of a dynamic list
+
+- empty list has size zero
+- insert 
+- remove
+- count 
+- read element at position
+- modify element at position
+- specify data type of elements
+
